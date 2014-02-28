@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Learning is a way of life
 ---
 {% include JB/setup %}
 
