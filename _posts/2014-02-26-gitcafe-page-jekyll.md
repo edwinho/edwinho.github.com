@@ -38,9 +38,7 @@ tags : [jekyll, git]
     * 通常不会经常更新。
 
   * “内容”也是指一种文本文件，它是使用Markdown语法来编写的文章。
-
     * 它里面包括文章内容与排版信息，但重点在于文章内容。
-    * 通常会经常发布新的“内容”（如果作者不懒的话……）
 
   * 生成的静态网站可以托管到任意web服务器上。
     但如果使用GitCafe的Page服务的话，就只需要更新Jekyll源码的Git版本就行了，
@@ -54,3 +52,54 @@ tags : [jekyll, git]
 * GitCafe提供Page服务，能在它的服务器上编译你的Git仓库中的Jekyll源码并托管静态网站。
 
   * 只要更新你的Git仓库，它就会自动生成。
+
+
+
+### 预备能力要求
+
+* 使用[Git](http://git-scm.com)的能力
+* 开发Web页面的能力
+* 使用文本编辑器的能力
+* 搜索与阅读教程的能力
+
+
+### 建站步骤
+
+1. 安装好git与[gem](http://rubygems.org)。
+2. [安装Jekyll](http://wiki.github.com/mojombo/jekyll/install)。
+3. 使用[JekyllBootstrap](http://jekyllbootstrap.com)的模板和主题。
+4. 编写你的“模板”以及“内容”。
+5. 使用`jekyll --server`来调试与预览你的站点。
+6. 将你的Jekyll源码目录初始化成本地Git仓库。
+  * 注意使用`.gitignore`来忽略掉`_site`目录
+  * 选用Gitcafe的要注意切换到`gitcafe-pages`分支再提交第一个版本。而Github的可以直接用master.
+7. Push到远程仓库，搞定。
+
+
+
+现在你打开 username.github.com 就可以看到刚才新建的页面了，就是这么简单。当然也可以为你的Blog仓库绑定独立域名，具体做法就是：
+
+在你的仓库中新建内容为 www.youdomain.com 的 CNAME 文件；
+在你的域名管理页或者是DNS解析的地方，增加一个记录，记录类别为CNAME(Alias)类型.
+
+注意：如果你在CNAME中填写的是顶级域名，就得设置DNS的记录类别为A(Host)型，并设置主机为207.97.227.245。详细介绍请移步Github的Pages页面。
+
+接下来我们只需要按照自己的喜好设计页面。首先认识下Jekyll的文件及目录配置:
+
+    .
+    |-- _config.yml
+    |-- _includes
+    |-- _layouts
+    |   |-- default.html
+    |   |-- post.html
+    |-- _posts
+    |   |-- 2011-10-25-open-source-is-good.markdown
+    |   |-- 2011-04-26-hello-world.markdown
+    |-- _site
+    |-- index.html
+    |-- assets
+        |-- css
+            |-- style.css
+        |-- javascripts
+
+
