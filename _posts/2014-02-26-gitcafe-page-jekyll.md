@@ -11,15 +11,12 @@ tags : [jekyll, git]
 
 之前一直用WordPress搭建的Blog，简单方便，功能齐全，用了一年半的时间。
 
-直到租用的服务器到期，于是就想试下新的Blog——[Jekyll][jekyll]，用Jekyll在[Github][github]上搭建Blog，放在Git托管网站上的建站方式，我使用Git已经有一段时间了，对我来说没有什么大问题，只不过写文章的方式不够KISS。
+直到租用的服务器到期，于是就想试下新的Blog——[Jekyll](https://github.com/mojombo/jekyll)，用Jekyll在[Github](https://github.com)上搭建Blog，放在Git托管网站上的建站方式，我使用Git已经有一段时间了，对我来说没有什么大问题，只不过写文章的方式不够KISS。
 
 这种Pages服务大概是Github先弄出来的，但Github的速度很不稳定，有时要loading一分钟才出半个页面。
 之前还由于刷票机事件，Github惨遭毒手。
-不过国内还有个[GitCafe][gitcafe]提供了类似的服务。
+不过国内还有个[GitCafe](https://gitcafe.com)提供了类似的服务。
 
-[jekyll]:https://github.com/mojombo/jekyll
-[github]:https://github.com
-[gitcafe]:https://gitcafe.com
 
 
 ### 好处
@@ -27,9 +24,8 @@ tags : [jekyll, git]
 * 完全自定义网站所有代码.
 * 免费.
 * 版本管理.
-* [Markdown][markdown]，简洁精确的排版方式，且方便粘贴源码
+* [Markdown](http://daringfireball.net/projects/markdown/syntax)，简洁精确的排版方式，且方便粘贴源码
 
-[markdown]:http://daringfireball.net/projects/markdown/syntax
 
 
 ### 大体原理
@@ -37,7 +33,7 @@ tags : [jekyll, git]
 * Jekyll 可以根据Jekyll 源码（“模板”与“内容”）编译出静态网站。
 
   * “模板”是指一种文本文件，
-    它里面可以使用[Liquid][liquid]代码来控制填充数据。
+    它里面可以使用[Liquid](http://www.liquidmarkup.org/)代码来控制填充数据。
 
     * 本质上模板不限于生成HTML，它可以生成任何格式的文本。
     * 通常不会经常更新。
@@ -60,24 +56,21 @@ tags : [jekyll, git]
 
   * 只要更新你的Git仓库，它就会自动生成。
 
-[liquid]: http://www.liquidmarkup.org/
 
 
 ### 预备能力要求
 
-* 使用[Git][git-scm]的能力
+* 使用[Git](http://git-scm.com)的能力
 * 开发Web页面的能力
 * 使用文本编辑器的能力
 * 搜索与阅读教程的能力
 
-[git-scm]: http://git-scm.com
-
 
 ### 建站步骤
 
-1. 安装好git与[gem][rubygems]。
-2. [安装Jekyll][jekyll_install]。
-3. 使用[JekyllBootstrap][jekyllbootstrap]的模板和主题。
+1. 安装好git与[gem](http://rubygems.org)。
+2. [安装Jekyll](http://wiki.github.com/mojombo/jekyll/install)。
+3. 使用[JekyllBootstrap](http://jekyllbootstrap.com)的模板和主题。
 4. 编写你的“模板”以及“内容”。
 5. 使用`jekyll --server`来调试与预览你的站点。
 6. 将你的Jekyll源码目录初始化成本地Git仓库。
@@ -85,9 +78,6 @@ tags : [jekyll, git]
   * 选用Gitcafe的要注意切换到`gitcafe-pages`分支再提交第一个版本。而Github的可以直接用master.
 7. Push到远程仓库，搞定。
 
-[rubygems]:http://rubygems.org
-[jekyll_install]:http://wiki.github.com/mojombo/jekyll/install
-[jekyllbootstrap]:http://jekyllbootstrap.com
 
 
 现在你打开 username.github.com 就可以看到刚才新建的页面了，就是这么简单。当然也可以为你的Blog仓库绑定独立域名，具体做法就是：
@@ -127,39 +117,22 @@ Jekyll自动生成的，所以可以忽略，如果你有在本地安装Jekyll�
 
 ### 评论功能？
 
-老外比较喜欢用[Disqus][disqus]。
+老外比较喜欢用[Disqus](https://disqus.com)。
 国内也有类似的东西，比如[友言](http://www.uyan.cc/)。
 
-[disqus]:https://disqus.com
 
 
 ### 各种语法参考
 
-* [YAML][jekyll_yaml]
-* [Markdown语法中译][markdown1]与[献给写作者的 Markdown 新手指南][markdown2]
-* Liquid与[Jekyll扩展过的Liquid][Liquid_ext]
-
-[jekyll_yaml]:https://github.com/mojombo/jekyll/wiki/yaml-front-matter
-[Liquid_ext]:http://wiki.github.com/mojombo/jekyll/liquid-extensions
-[markdown1]:http://markdown.tw/
-[markdown2]:http://jianshu.io/p/q81RER
+* [YAML](https://github.com/mojombo/jekyll/wiki/yaml-front-matter)
+* [Markdown语法中译](http://markdown.tw)与[献给写作者的 Markdown 新手指南](http://jianshu.io/p/q81RER)
+* Liquid与[Jekyll扩展过的Liquid](http://wiki.github.com/mojombo/jekyll/liquid-extensions)
 
 
-### [Liquid][liquid]里面的[Maruku][maruku]对于中文的列表有BUG
-
-默认的Markdown引擎[Maruku][maruku]
-有时候会列表转义失败。遇到BUG时可尝试以下解决方案之一：
-
-* 在结尾加上一个空白符号`&nbsp;`.
-* 在列表之间插入空行。
-
-[maruku]:https://github.com/bhollis/maruku
 
 
-### 参考及相关资料：
+### 参考及相关资料
 
-[理想的写作环境：Git+Github+Markdown+Jekyll][link1]
-[使用Jekyll在Github上搭建博客][link2]
+- [理想的写作环境：Git+Github+Markdown+Jekyll](http://www.yangzhiping.com/tech/writing-space.html)
+- [使用Jekyll在Github上搭建博客](http://hzmook.github.io/2012/07/01/use-jekyll-build-blog-on-github.html)
 
-[link1]:http://www.yangzhiping.com/tech/writing-space.html
-[link2]:http://hzmook.github.io/2012/07/01/use-jekyll-build-blog-on-github.html
