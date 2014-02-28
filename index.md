@@ -1,7 +1,6 @@
 ---
 layout: page
-title: Hello World!
-tagline: Supporting tagline
+title: Learning is a way of life
 ---
 {% include JB/setup %}
 
