@@ -24,9 +24,9 @@ tags : [jekyll, git]
 
 ### 好处
 
-* 完全自定义网站所有代码&nbsp;
-* 免费&nbsp;
-* 版本管理&nbsp;
+* 完全自定义网站所有代码.
+* 免费.
+* 版本管理.
 * [Markdown][markdown]，简洁精确的排版方式，且方便粘贴源码
 
 [markdown]:http://daringfireball.net/projects/markdown/syntax
@@ -36,16 +36,16 @@ tags : [jekyll, git]
 
 * Jekyll 可以根据Jekyll 源码（“模板”与“内容”）编译出静态网站。
 
-  * “模板”是指一种文本文件，&nbsp;
-    它里面可以使用[Liquid][liquid]代码来控制填充数据。&nbsp;
+  * “模板”是指一种文本文件，
+    它里面可以使用[Liquid][liquid]代码来控制填充数据。
 
-    * 本质上模板不限于生成HTML，它可以生成任何格式的文本。&nbsp;
-    * 通常不会经常更新。&nbsp;
+    * 本质上模板不限于生成HTML，它可以生成任何格式的文本。
+    * 通常不会经常更新。
 
   * “内容”也是指一种文本文件，它是使用Markdown语法来编写的文章。
 
-    * 它里面包括文章内容与排版信息，但重点在于文章内容。&nbsp;
-    * 通常会经常发布新的“内容”（如果作者不懒的话……）&nbsp;
+    * 它里面包括文章内容与排版信息，但重点在于文章内容。
+    * 通常会经常发布新的“内容”（如果作者不懒的话……）
 
   * 生成的静态网站可以托管到任意web服务器上。
     但如果使用GitCafe的Page服务的话，就只需要更新Jekyll源码的Git版本就行了，
@@ -53,8 +53,8 @@ tags : [jekyll, git]
 
 * 用Git版本管理系统保存Jekyll源码。
 
-  * “模板”与“内容”都会完整的记录修改历史。&nbsp;
-  * 通常不需要记录静态网站生成结果。&nbsp;
+  * “模板”与“内容”都会完整的记录修改历史.
+  * 通常不需要记录静态网站生成结果。
 
 * GitCafe提供Page服务，能在它的服务器上编译你的Git仓库中的Jekyll源码并托管静态网站。
 
@@ -65,10 +65,10 @@ tags : [jekyll, git]
 
 ### 预备能力要求
 
-* 使用[Git][git-scm]的能力&nbsp;
-* 开发Web页面的能力&nbsp;
-* 使用文本编辑器的能力&nbsp;
-* 搜索与阅读教程的能力&nbsp;
+* 使用[Git][git-scm]的能力
+* 开发Web页面的能力
+* 使用文本编辑器的能力
+* 搜索与阅读教程的能力
 
 [git-scm]: http://git-scm.com
 
@@ -99,27 +99,28 @@ tags : [jekyll, git]
 
 接下来我们只需要按照自己的喜好设计页面。首先认识下Jekyll的文件及目录配置:
 
-* _config.yml
+
+- **\_config.yml**
 
 保存Jekyll配置的文件。虽然绝大部分选项可以通过命令行参数指定，但将它们写入配置文件可以使你在每次执行时不必记住它们。
 
-* _includes
+- **\_includes**
 
 该目录存放可以与layouts和posts混合、匹配并重用的文件。Liquid标签{% include file.ext %}可以用于嵌入文件_includes/file.ext。
 
-* _layouts
+- **\_layouts**
 
 该目录存放用来插入帖子的网页布局模板。页面布局基于类似博客平台的“一个帖子接一个帖子”的原则，通过YAML前置数据定义。Liquid标签用于在页面上插入帖子的文本内容。
 
-* _plugins
+- **\_plugins**
 
 可以增加你自己的插件。
 
-* _posts
+- **\_posts**
 
 该目录下存放的可以说成是你的“动态内容”。这些文件的格式很重要，它们的文件命名一定要遵循 yyyy-mm-dd-title.html|markdown|textile 规则。每一个帖子的固定链接URL可以作弹性的调整，但帖子的发布日期和转换所使用的标记语言会根据且仅根据文件名中的相应部分来识别。
 
-* _site
+- **\_site**
 
 Jekyll自动生成的，所以可以忽略，如果你有在本地安装Jekyll并预览了的话，可以使用.gitignore设置Git停止对本目录的跟踪。
 
@@ -149,8 +150,8 @@ Jekyll自动生成的，所以可以忽略，如果你有在本地安装Jekyll�
 默认的Markdown引擎[Maruku][maruku]
 有时候会列表转义失败。遇到BUG时可尝试以下解决方案之一：
 
-* 在结尾加上一个空白符号`&nbsp;`。&nbsp;
-* 在列表之间插入空行。&nbsp;
+* 在结尾加上一个空白符号`&nbsp;`.
+* 在列表之间插入空行。
 
 [maruku]:https://github.com/bhollis/maruku
 
@@ -158,7 +159,6 @@ Jekyll自动生成的，所以可以忽略，如果你有在本地安装Jekyll�
 ### 参考及相关资料：
 
 [理想的写作环境：Git+Github+Markdown+Jekyll][link1]
-
 [使用Jekyll在Github上搭建博客][link2]
 
 [link1]:http://www.yangzhiping.com/tech/writing-space.html
