@@ -103,20 +103,23 @@ tags : [jekyll, git]
         |-- javascripts
 
 
-- **\_config.yml**
-	保存Jekyll配置的文件。虽然绝大部分选项可以通过命令行参数指定，但将它们写入配置文件可以使你在每次执行时不必记住它们。
 
-- **\_includes**
-	该目录存放可以与layouts和posts混合、匹配并重用的文件。Liquid标签{% include file.ext %}可以用于嵌入文件_includes/file.ext。
 
-- **\_layouts**
-	该目录存放用来插入帖子的网页布局模板。页面布局基于类似博客平台的“一个帖子接一个帖子”的原则，通过YAML前置数据定义。Liquid标签用于在页面上插入帖子的文本内容。
+### 评论功能？
 
-- **\_plugins**
-	可以增加你自己的插件。
+老外比较喜欢用[Disqus](https://disqus.com)。
+国内也有类似的东西，比如[友言](http://www.uyan.cc/)。
 
-- **\_posts**
-	该目录下存放的可以说成是你的“动态内容”。这些文件的格式很重要，它们的文件命名一定要遵循 yyyy-mm-dd-title.html|markdown|textile 规则。每一个帖子的固定链接URL可以作弹性的调整，但帖子的发布日期和转换所使用的标记语言会根据且仅根据文件名中的相应部分来识别。
 
-- **\_site**
-	Jekyll自动生成的，所以可以忽略，如果你有在本地安装Jekyll并预览了的话，可以使用.gitignore设置Git停止对本目录的跟踪。
+### 各种语法参考
+
+* [YAML](https://github.com/mojombo/jekyll/wiki/yaml-front-matter)
+* [Markdown语法中译](http://markdown.tw)与[献给写作者的 Markdown 新手指南](http://jianshu.io/p/q81RER)
+* Liquid与[Jekyll扩展过的Liquid](http://wiki.github.com/mojombo/jekyll/liquid-extensions)
+
+
+### 参考及相关资料
+
+- [理想的写作环境：Git+Github+Markdown+Jekyll](http://www.yangzhiping.com/tech/writing-space.html)
+- [使用Jekyll在Github上搭建博客](http://hzmook.github.io/2012/07/01/use-jekyll-build-blog-on-github.html)
+
