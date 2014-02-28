@@ -1,11 +1,11 @@
 ---
 layout: post
+category : lessons
+tagline: "Supporting tagline"
 title: '使用 GitCafe Page 与 Jekyll 搭建 Blog'
-tags:
-- Jekyll
-- git
+tags : [jekyll, git]
 ---
-
+{% include JB/setup %}
 
 ##换Blog
 
