@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 振籽
+title: '振籽'
 ---
 {% include JB/setup %}
 
