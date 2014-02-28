@@ -5,7 +5,7 @@ title: 振籽
 {% include JB/setup %}
 <div class="row-fluid">
     <div class="span12" display="none"></div>
-  {% for post in paginator.posts %}
+  {% for post in site.posts %}
         {% capture summary %}{{post.content | split:'<!--more-->' |first }}{% endcapture%}
     <div class="span12 row">
         <h2><a class="title" href="{{ BASE_PATH }}{{ post.url }}">{{ post.title }}</a></h2>
