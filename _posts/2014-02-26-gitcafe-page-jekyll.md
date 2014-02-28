@@ -12,6 +12,8 @@ tags : [jekyll, git]
 
 直到租用的服务器到期，于是就想试下新的Blog——[Jekyll](https://github.com/mojombo/jekyll)，用Jekyll在[Github](https://github.com)上搭建Blog，放在Git托管网站上的建站方式，我使用Git已经有一段时间了，对我来说没有什么大问题，只不过写文章的方式不够KISS。
 
+<!--more-->
+
 这种Pages服务大概是Github先弄出来的，但Github的速度很不稳定，有时要loading一分钟才出半个页面。
 之前还由于刷票机事件，Github惨遭毒手。
 不过国内还有个[GitCafe](https://gitcafe.com)提供了类似的服务。
