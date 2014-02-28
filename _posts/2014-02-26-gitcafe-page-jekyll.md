@@ -2,6 +2,7 @@
 layout: post
 category : lessons
 tagline: "Supporting tagline"
+title: '使用jekyll上github上搭建blog'
 tags : [jekyll, git]
 ---
 {% include JB/setup %}
