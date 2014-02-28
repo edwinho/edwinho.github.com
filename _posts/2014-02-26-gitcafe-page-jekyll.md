@@ -15,3 +15,12 @@ tags : [jekyll, git]
 这种Pages服务大概是Github先弄出来的，但Github的速度很不稳定，有时要loading一分钟才出半个页面。
 之前还由于刷票机事件，Github惨遭毒手。
 不过国内还有个[GitCafe](https://gitcafe.com)提供了类似的服务。
+
+
+
+### 好处
+
+* 完全自定义网站所有代码.
+* 免费.
+* 版本管理.
+* [Markdown](http://daringfireball.net/projects/markdown/syntax)，简洁精确的排版方式，且方便粘贴源码
