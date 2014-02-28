@@ -1,7 +1,6 @@
 ---
 layout: post
 category : lessons
-tagline: "Supporting tagline"
 title: '使用jekyll上github上搭建blog'
 tags : [jekyll, git]
 ---
@@ -25,3 +24,33 @@ tags : [jekyll, git]
 * 免费.
 * 版本管理.
 * [Markdown](http://daringfireball.net/projects/markdown/syntax)，简洁精确的排版方式，且方便粘贴源码
+
+
+
+### 大体原理
+
+* Jekyll 可以根据Jekyll 源码（“模板”与“内容”）编译出静态网站。
+
+  * “模板”是指一种文本文件，
+    它里面可以使用[Liquid](http://www.liquidmarkup.org/)代码来控制填充数据。
+
+    * 本质上模板不限于生成HTML，它可以生成任何格式的文本。
+    * 通常不会经常更新。
+
+  * “内容”也是指一种文本文件，它是使用Markdown语法来编写的文章。
+
+    * 它里面包括文章内容与排版信息，但重点在于文章内容。
+    * 通常会经常发布新的“内容”（如果作者不懒的话……）
+
+  * 生成的静态网站可以托管到任意web服务器上。
+    但如果使用GitCafe的Page服务的话，就只需要更新Jekyll源码的Git版本就行了，
+    上传速度比较快。
+
+* 用Git版本管理系统保存Jekyll源码。
+
+  * “模板”与“内容”都会完整的记录修改历史.
+  * 通常不需要记录静态网站生成结果。
+
+* GitCafe提供Page服务，能在它的服务器上编译你的Git仓库中的Jekyll源码并托管静态网站。
+
+  * 只要更新你的Git仓库，它就会自动生成。
