@@ -18,14 +18,11 @@ tags:
 <!--more-->
 
 
-形式                                                                      含义
-
-
 **Time const p; 或const Time p;**
 	p是常量对象，其值在任何情况下都不能改变
 
 
-**void Time::foo() const**
+**void Time::foo() const;**
 	foo是Time类中的常量成员函数，可以引用，但不能修改本类中的数据成员
 
 
