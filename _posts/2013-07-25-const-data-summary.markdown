@@ -25,19 +25,19 @@ tags:
 	p是常量对象，其值在任何情况下都不能改变
 
 
-**void Time::foo() const    **
+**void Time::foo() const**
 	foo是Time类中的常量成员函数，可以引用，但不能修改本类中的数据成员
 
 
-**Time * const p;    **
+**Time *const p;**
 	p是指向Time对象的常指针，p的值（即p的指向）不能改变
 
 
-**const Time *p ;  **
+**const Time *p;**
 	p是指向Time类对象的常指针，其指向的类对象的值不能通过指针来改变
 
 
-**Time &p = q ;    **
+**Time &p = q;**
 	p是Time类对象q的引用，q和p指向同事一段内存空间
 
 
