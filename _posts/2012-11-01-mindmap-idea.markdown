@@ -7,7 +7,6 @@ slug: mindmap-idea
 title: Mindmap & IDEA
 wordpress_id: 100
 categories:
-- 学习笔记
 - 扯淡
 tags:
 - cryptography
