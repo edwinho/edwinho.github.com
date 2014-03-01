@@ -16,7 +16,7 @@ tags:
 
 以下面的kernel函数作为入门例子：
 
-    
+    .
     __kernel void hellocl ( __global uint * buffer) {
          size_t gidx = get_global_id(0);
          size_t gidy = get_global_id(1);
@@ -26,7 +26,7 @@ tags:
 
 OpenCL C比C多出一些函数限定符，例子中用到的 __kernel是所有OpenCL C中必须用到的。函数加注 __kernel表示其只能运行在OpenCL设备上，并且该函数可以被host调用，kernel中的其它函数也可以像调用普通函数一样调用含有该前缀的函数。
 
-OpenCL C还增加了一些地址空间限定符包括 __global，__local，__constant和 __private。这些地址限定符可以用来声明变量，以表明该变量对象所使用的内存区域。以上述地址空间限定符声明的对象会被分配到指定地址空间，否者会被分配到通用地址空间。
+OpenCL C还增加了一些地址空间限定符包括 \__global，\__local，\__constant和 __private。这些地址限定符可以用来声明变量，以表明该变量对象所使用的内存区域。以上述地址空间限定符声明的对象会被分配到指定地址空间，否者会被分配到通用地址空间。
 
 __global或简写为 global，表示该声明内存对像使用的是从全局内存空间分配出来的内存，工作空间内所有工作节点都可以读 /写这块被声明的内存。在上面的例子中 buffer就被加注了global限定符，所以 kernel内部可以自由访问buffer。
 
@@ -41,7 +41,7 @@ half类型。OpenCL C中的 half类型是和 IEEE 754-2008规范兼容的，使�
 
 除了 half类型，OpenCL还支持内建的矢量数据类型（Vector Data Types），可以建立 vector类型的数据类型包括 char，unsigned char，short，unsigned short，integer，unsigned integer，long，unsigned long和float，在 OpenCL C中用户可以定义charn，ucharn，shortn，ushortn，integern，uintegern，longn，ulongn和floatn型的矢量数据，其中 n为2，4，8或16。这些矢量类型在OpenCL API中可以使用cl_charn，cl_charn，cl_shortn，cl_ushortn，cl_integern，cl_uintegern，cl_longn，cl_ulongn和cl_floatn来声明。用户可以利用矢量数据类型文字来初始化相应的矢量数据或者在执行语句中定义该类型的常量。例如下面的例子：
 
-    
+    .
     float4 f = (float4)(1.0f, 2.0f, 3.0f, 4.0f);
     uint8 u = (uint8)(1); //这样是正确的，u的各个分量被定义为1
     float4 f = (float4)( (float2)(1.0f, 2.0f), (float2)(3.0f, 4.0f) )
@@ -51,7 +51,7 @@ half类型。OpenCL C中的 half类型是和 IEEE 754-2008规范兼容的，使�
 
 用户可以使用 . 操作访问一个vector数据的各个分量。在 OpenCL中vector数据的前四个分量依次标识为 x，y，z，w分量，如果该矢量数据只有两个分量，例如 uchar2，则只有 .xy分量是可以有效访问的，具有四个或四个以上分量的 vector数据可访问所有 .xyzw分量。OpenCL C允许用户将不同分量的 名叠加在 .操作符后来一次访问多个分量，并且多个分量不必须按 xyzw顺序排列。请看下面的例子：
 
-    
+    .
     float4 a;
     a.xyzw = (float4)(1.0f, 2.0f, 3.0f, 4.0f);
     a.z = 3.0f; //可以单独给一个分量赋值
@@ -67,7 +67,7 @@ half类型。OpenCL C中的 half类型是和 IEEE 754-2008规范兼容的，使�
 用户也可以使用各个分量的数字坐标来访问 vector数据的分量，其第5-16个分量只能通过这种方法访问。vector分量的数值坐标依次为 0， 1， 2， 3， 4， 5， 6， 7， 8， 9， a， b， c， d， e， f
 不区分大小写，访问时必须加入前缀 s（或S）。用户同样可以通过在 s后叠加不同分量的数字坐标来同时访问多个分量，但数字坐标不能和字母坐标xyzw混用。请看下面的例子：
 
-    
+    .
     float16 d;
     d.x = 0.0f; // 等同d.s0
     d.sa = 10.0f; // 为第11个分量赋值
@@ -77,7 +77,7 @@ half类型。OpenCL C中的 half类型是和 IEEE 754-2008规范兼容的，使�
 
 OpenCL C提供了其他高效的方法来访问和使用 vector数据，它们包括.lo用来访问 vector中前半段数据，.hi用来用来访问 vector后半段数据，.odd用来访问 vector中所有坐标为奇数的数据，.even用来访问 vector中所有坐标为偶数的数据。如下例:
 
-    
+    .
     float16 v;
     float8 low = v.lo; // low = v.s01234567
     float8 high = v.hi; // high = v.s89abcdef
@@ -88,7 +88,7 @@ OpenCL C提供了其他高效的方法来访问和使用 vector数据，它们�
 
 C语言中大部分的操作符都可以在 OpenCL C中直接使用，但 half类型的变量只能使用 sizeof操作。对于 vector变量，所有操作都是按每个分量进 行的操作的。所以要求操作数据的分量个数相同，scalar （纯量数据即单分量数据）在运算是可以被自动转化成相应的各分量值相同的 vector变量，下例：
 
-    
+    .
     float4 v, u, w;
     float f;
     v = u + f;
@@ -100,7 +100,6 @@ C语言中大部分的操作符都可以在 OpenCL C中直接使用，但 half�
     v.z = u.z + f;
     v.w = u.w + f;
     */
-    
     w = v + u;
     /*
     w = v + u 同样等同于下面按分量分别相加：
@@ -109,7 +108,6 @@ C语言中大部分的操作符都可以在 OpenCL C中直接使用，但 half�
     w.z = v.z + u.z;
     w.w = v.w + u.w;
     */
-    
     f = w + f; // 非法，OpenCL C不能把 = 右侧的float4 转换为float
 
 
