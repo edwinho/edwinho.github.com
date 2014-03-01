@@ -25,7 +25,7 @@ single line comments
 
 
 
-# balabala
+\# balabala
 
 
 
@@ -246,7 +246,7 @@ This order can be changed by including parentheses(`()`). Anything in parenthes
 
 
 
-## Date and Time
+**Date and Time**
 
 
 
