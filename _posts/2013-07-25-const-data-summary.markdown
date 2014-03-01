@@ -22,11 +22,11 @@ tags:
 	p是常量对象，其值在任何情况下都不能改变
 
 
-**void Time::foo() const;**
+**void Time::foo\(\) const;**
 	foo是Time类中的常量成员函数，可以引用，但不能修改本类中的数据成员
 
 
-**Time *const p;**
+**Time \*const p;**
 	p是指向Time对象的常指针，p的值（即p的指向）不能改变
 
 
