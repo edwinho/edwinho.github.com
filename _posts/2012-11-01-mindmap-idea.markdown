@@ -24,6 +24,6 @@ tags:
 
 上个星期这门课的老师布置了个作业：用思维导图做个读书笔记。刚刚我的导师叫我自己看看关于[IDEA](http://en.wikipedia.org/wiki/International_Data_Encryption_Algorithm)的文章，然后用C实现这个算法，于是我就把这两个合在一起做，就有了下面这张图：
 
-![img_20121024_212832](http://www.edwinho.org/wp-content/gallery/photo-gallery/img_20121024_212832.jpg)
+![img_20121024_212832](http://edwinho.github.io/images/study_notes/mindmap_idea.jpg)
 
 [代码在这](https://github.com/edwinho/cryptography/blob/master/idea.c)。
