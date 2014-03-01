@@ -1,11 +1,8 @@
 ---
 author: edwin
-comments: true
-date: 2013-01-23 17:29:29+00:00
 layout: post
 slug: block-ciphers-notes
 title: Block Ciphers 笔记
-wordpress_id: 80
 categories:
 - 学习笔记
 tags:
@@ -29,6 +26,8 @@ Authentication(可认证性)
 
 Block Ciphers 属于[对称密码](http://en.wikipedia.org/wiki/Symmetric-key_algorithm)，对称密码还有Stream Ciphers 和 Message Authentication
 Codes (MACs).密码学就是用一个比较短的密钥加密一个很长的信息，绝对安全是不可能的，到现时为止，在复杂性理论安全算法方面，还没有找到令人满意的结果。
+
+<!--more-->
 
 **理论攻击和真实攻击**
 Example:一个256位密钥的加密算法

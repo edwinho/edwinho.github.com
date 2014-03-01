@@ -1,20 +1,16 @@
 ---
 author: edwin
-comments: true
-date: 2013-03-04 10:57:17+00:00
 layout: post
-slug: 8-round-rc5-without-any-rotations
 title: 8-round RC5 without any rotations
-wordpress_id: 109
 categories:
 - cryptography
 tags:
 - cryptanalysis
-- cryptography
 ---
 
 导师推荐看[Bruce Schneier](http://www.schneier.com/)的self-study-cryptanalysis中的6.2，有这个练习Cryptanalyze "8-round RC5 without any rotations"。然后开始试着做一下，写的是RC5-32/16/16，[戳这](https://github.com/edwinho/cryptography/blob/master/RC5-cryptanalysis/rc5-8r.py)[。](http://codepad.org/jLL2iste)
 
+<!--more-->
 
 之后的第一个猜想是：密钥的每个bit对应影响着密文的1个bits。验证方法：用同样的明文，每次改变密钥的1个bit，再用8-round RC5 without any rotations加密，于是在之前的代码上稍加修改，[戳这](https://github.com/edwinho/cryptography/blob/master/RC5-cryptanalysis/rc5-8r-bit.py)。
 
