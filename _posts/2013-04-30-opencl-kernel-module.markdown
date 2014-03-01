@@ -23,20 +23,20 @@ tags:
     }
 
 
-OpenCL C比C多出一些函数限定符，例子中用到的 \__kernel是所有OpenCL C中必须用到的。函数加注 __kernel表示其只能运行在OpenCL设备上，并且该函数可以被host调用，kernel中的其它函数也可以像调用普通函数一样调用含有该前缀的函数。
+OpenCL C比C多出一些函数限定符，例子中用到的 \__kernel是所有OpenCL C中必须用到的。函数加注 \__kernel表示其只能运行在OpenCL设备上，并且该函数可以被host调用，kernel中的其它函数也可以像调用普通函数一样调用含有该前缀的函数。
 
-OpenCL C还增加了一些地址空间限定符包括 \__global，\__local，\__constant和 __private。这些地址限定符可以用来声明变量，以表明该变量对象所使用的内存区域。以上述地址空间限定符声明的对象会被分配到指定地址空间，否者会被分配到通用地址空间。
+OpenCL C还增加了一些地址空间限定符包括 \__global，\__local，\__constant和 \__private。这些地址限定符可以用来声明变量，以表明该变量对象所使用的内存区域。以上述地址空间限定符声明的对象会被分配到指定地址空间，否者会被分配到通用地址空间。
 
-__global或简写为 global，表示该声明内存对像使用的是从全局内存空间分配出来的内存，工作空间内所有工作节点都可以读 /写这块被声明的内存。在上面的例子中 buffer就被加注了global限定符，所以 kernel内部可以自由访问buffer。
+\__global或简写为 global，表示该声明内存对像使用的是从全局内存空间分配出来的内存，工作空间内所有工作节点都可以读 /写这块被声明的内存。在上面的例子中 buffer就被加注了global限定符，所以 kernel内部可以自由访问buffer。
 
-__constant或简写为 constant，与global相同，使用从全局内存空间分配出来的内存，可以在所有工作节点做只读访问。在OpenCL C中试图对constant对象进行写操作会产生编译错误。
+\__constant或简写为 constant，与global相同，使用从全局内存空间分配出来的内存，可以在所有工作节点做只读访问。在OpenCL C中试图对constant对象进行写操作会产生编译错误。
 
-__local或简写为 local，声明内存对像使用的是 local memory pool中的内存，仅能在同一个工作组的不同工作节点之间访问。
+\__local或简写为 local，声明内存对像使用的是 local memory pool中的内存，仅能在同一个工作组的不同工作节点之间访问。
 
-__private或简写为 private，所有在 OpenCL C函数内部使用的变量或者传入函数内部的参数都是 private类型，用户在声明 private类型的变量时可以省略此限定符（因此无地址空间限定符的变量都属于此类型）。private类型的对象仅可以在其所在的工作节点内部使用。例如例中的 gidx在每个节点上都是独立存储使用的，不能交互使用。
+\__private或简写为 private，所有在 OpenCL C函数内部使用的变量或者传入函数内部的参数都是 private类型，用户在声明 private类型的变量时可以省略此限定符（因此无地址空间限定符的变量都属于此类型）。private类型的对象仅可以在其所在的工作节点内部使用。例如例中的 gidx在每个节点上都是独立存储使用的，不能交互使用。
 
 OpenCL C中支持 C语言中原有的一些数据类型如 bool，char，float等。其中 double和longlong等数据类型可以不支持或是选择性支持。OpenCL C中还增加了一些新的数据类型，其中包括：
-half类型。OpenCL C中的 half类型是和 IEEE 754-2008规范兼容的，使用16bits来表示浮点数据。将 half类型的数据转换成 float型是无损的，但将float类型转化为 half类型则可能损失精度。
+half类型。OpenCL C中的 half类型是和 IEEE 754\-2008规范兼容的，使用16bits来表示浮点数据。将 half类型的数据转换成 float型是无损的，但将float类型转化为 half类型则可能损失精度。
 
 除了 half类型，OpenCL还支持内建的矢量数据类型（Vector Data Types），可以建立 vector类型的数据类型包括 char，unsigned char，short，unsigned short，integer，unsigned integer，long，unsigned long和float，在 OpenCL C中用户可以定义charn，ucharn，shortn，ushortn，integern，uintegern，longn，ulongn和floatn型的矢量数据，其中 n为2，4，8或16。这些矢量类型在OpenCL API中可以使用cl_charn，cl_charn，cl_shortn，cl_ushortn，cl_integern，cl_uintegern，cl_longn，cl_ulongn和cl_floatn来声明。用户可以利用矢量数据类型文字来初始化相应的矢量数据或者在执行语句中定义该类型的常量。例如下面的例子：
 
@@ -111,4 +111,4 @@ C语言中大部分的操作符都可以在 OpenCL C中直接使用，但 half�
     f = w + f; // 非法，OpenCL C不能把 = 右侧的float4 转换为float
 
 
-关于运算操作的细节描述请参看[OpenCL Specifications](http://www.khronos.org/registry/cl/specs/opencl-1.0.29.pdf).
+关于运算操作的细节描述请参看[OpenCL Specifications](http://www.khronos.org/registry/cl/specs/opencl-1.0.29.pdf)
