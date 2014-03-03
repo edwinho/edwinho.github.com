@@ -7,7 +7,7 @@ slug: the-fundamentals-of-python
 title: The fundamentals of Python
 wordpress_id: 93
 categories:
-- 学习笔记
+- codes
 tags:
 - Python
 ---

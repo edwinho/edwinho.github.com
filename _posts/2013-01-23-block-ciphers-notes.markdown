@@ -4,7 +4,7 @@ layout: post
 slug: block-ciphers-notes
 title: Block Ciphers 笔记
 categories:
-- 学习笔记
+- codes
 tags:
 - block_cipher
 - cryptography

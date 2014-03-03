@@ -6,7 +6,7 @@ layout: post
 slug: const-data-summary
 title: const型数据的小结
 categories:
-- 学习笔记
+- codes
 tags:
 - C++
 ---

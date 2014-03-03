@@ -6,7 +6,7 @@ layout: post
 slug: hello-world
 title: Hello World
 categories:
-- 扯淡
+- life
 tags:
 - WordPress
 ---

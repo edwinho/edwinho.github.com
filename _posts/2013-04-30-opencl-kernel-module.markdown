@@ -6,7 +6,7 @@ layout: post
 slug: opencl-kernel-module
 title: OpenCL内核模块
 categories:
-- 学习笔记
+- codes
 tags:
 - OpenCL
 ---
