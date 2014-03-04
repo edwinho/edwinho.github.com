@@ -98,7 +98,7 @@ tags : [jekyll, git]
 最后在你的域名管理界面添加一个A记录，将它指向GitCafe服务器的IP：
 ![banding-domain](http://edwinho.github.io/images/lessons/banding-domain.png)
 
-大功告成，现在你就可以通过自己的域名来访问GitCafe为你渲染好的Pages了！
+大功告成，现在你就可以通过自己的域名来访问GitCafe为你渲染好的Pages了！<br/>
 
 接下来我们只需要按照自己的喜好设计页面。首先认识下Jekyll的文件及目录配置:
 
