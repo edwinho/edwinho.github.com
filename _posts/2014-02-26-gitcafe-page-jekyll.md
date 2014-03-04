@@ -78,7 +78,7 @@ tags : [jekyll, git]
 7. Push到远程仓库，搞定。
 
 
-- github
+- **github**<br/>
 现在你打开 username.github.com 就可以看到刚才新建的页面了，就是这么简单。当然也可以为你的Blog仓库绑定独立域名，具体做法就是：
 
 在你的仓库中新建内容为 www.youdomain.com 的 CNAME 文件；
@@ -86,7 +86,7 @@ tags : [jekyll, git]
 
 注意：如果你在CNAME中填写的是顶级域名，就得设置DNS的记录类别为A(Host)型，并设置主机为207.97.227.245(用`dig username.github.io`查看你的IP地址)。详细介绍请移步Github的Pages页面。
 
-- gitcafe
+- **gitcafe**<br/>
 进入你的Page Repo的项目管理界面：
 ![gitcafe-01](http://edwinho.github.io/images/lessons/gitcafe-01.png)
 
