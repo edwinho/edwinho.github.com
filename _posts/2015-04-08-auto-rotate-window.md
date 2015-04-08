@@ -13,10 +13,9 @@ tags : [cocos2dx, Android, Java, game]
 
 ### 实现方法：
 
-1.首先自定义一个类继承ContentObserver。在onChange()方法里面去获取手机方向Settings的值，每次改变方向锁定的状态都会重设手机屏幕旋转方式。
+1.首先自定义一个类继承ContentObserver。在onChange()方法里面去获取手机方向Settings的值，每次改变方向锁定的状态都会重设手机屏幕旋转方式
 
 <!--more-->
-
     
 	public void onChange(boolean selfChange) {
 		super.onChange(selfChange);
@@ -30,8 +29,27 @@ tags : [cocos2dx, Android, Java, game]
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 		}
 	}
-	
 
-### 查看完整项目
+	
+2.注册监听事件
+    
+	private SettingsValueChangeContentObserver mContentOb;
+	protected void onStart() {
+    	super.onStart();
+     	mContentOb=new SettingsValueChangeContentObserver();
+        getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true, mContentOb);
+	}
+
+
+
+3.当应用退出的时候取消监听
+    
+	protected void onStop() {
+        super.onStop();
+        getContentResolver().unregisterContentObserver(mContentOb);
+	}
+
+
+### 扩展
 
 - [ARPG Game Demo](https://github.com/edwinho/ARPGDemo)
