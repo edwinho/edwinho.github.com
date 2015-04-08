@@ -46,7 +46,6 @@ tags : [cocos2dx, Android, Java, game]
 	protected void onStop() {
 		super.onStop();
 		getContentResolver().unregisterContentObserver(mContentOb);
-
 	}
 
 
