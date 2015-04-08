@@ -17,18 +17,18 @@ tags : [cocos2dx, Android, Java, game]
 
 <!--more-->
     
-public void onChange(boolean selfChange) {
-	super.onChange(selfChange);
-	int flag = Settings.System.getInt(getContentResolver(),Settings.System.ACCELEROMETER_ROTATION, 0);
-	if (flag == 1)
-	{
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+	public void onChange(boolean selfChange) {
+		super.onChange(selfChange);
+		int flag = Settings.System.getInt(getContentResolver(),Settings.System.ACCELEROMETER_ROTATION, 0);
+		if (flag == 1)
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
+		}
+		else if (flag == 0)
+		{
+			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+		}
 	}
-	else if (flag == 0)
-	{
-		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-	}
-}
 
 	
 2. 注册监听事件
