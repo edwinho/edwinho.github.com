@@ -36,9 +36,9 @@ tags : [cocos2dx, Android, Java, game]
 
 	private SettingsValueChangeContentObserver mContentOb;
 	protected void onStart() {
-    	super.onStart();
-     	mContentOb=new SettingsValueChangeContentObserver();
-        getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true, mContentOb);
+		super.onStart();
+		mContentOb=new SettingsValueChangeContentObserver();
+		getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true, mContentOb);
 	}
 
 
@@ -47,8 +47,8 @@ tags : [cocos2dx, Android, Java, game]
 
 
 	protected void onStop() {
-          super.onStop();
-          getContentResolver().unregisterContentObserver(mContentOb);
+		super.onStop();
+		getContentResolver().unregisterContentObserver(mContentOb);
 	}
 
 
