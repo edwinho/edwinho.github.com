@@ -31,10 +31,10 @@ tags : [cocos2dx, Android, Java, game]
 	}
 
 	
-2. 注册监听事件
+>2. 注册监听事件
 
-	private SettingsValueChangeContentObserver mContentOb;
-	protected void onStart() {
+>>	private SettingsValueChangeContentObserver mContentOb;
+>>	protected void onStart() {
 		super.onStart();
 		mContentOb=new SettingsValueChangeContentObserver();
 		getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true, mContentOb);
@@ -44,8 +44,11 @@ tags : [cocos2dx, Android, Java, game]
 3. 当应用退出的时候取消监听
 ```
 	protected void onStop() {
+
 		super.onStop();
+
 		getContentResolver().unregisterContentObserver(mContentOb);
+		
 	}
 ```
 
