@@ -1,10 +1,10 @@
 # Site settings
-title: "Jekyll template"
-url: "//ihavee.github.io"
+title: "Max"
+url: "//www.edwinho.org/"
 highlighter: pygments
-paginate: 5
+paginate: 8
 author:
-    name: Havee
+    name: Max
     github:
     email:
     gitcafe:
