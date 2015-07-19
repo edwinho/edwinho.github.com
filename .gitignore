@@ -1,4 +1,11 @@
 _site
+
+Thumbs.db
 .DS_Store
+
+!.gitkeep
+
 .sass-cache
-_cache
+
+qrsync
+_qiniu.json

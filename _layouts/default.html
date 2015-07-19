@@ -1,47 +1,54 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<html>
 
   {% include head.html %}
 
-  <body class="theme-base-0d">
+  <body>
+    <div class="container">
+      {% include header.html %}
 
-    {% include sidebar.html %}
-
-    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
-         content to avoid any CSS collisions with our real content. -->
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href="/" title="Home">{{ site.title }}</a>
-            <small>{{ site.tagline }}</small>
-          </h3>
+      <article class="wrapper">
+        <div id="search-loader" class="img-wrap">
+          <div class="loading">
+            <img src="{{ site.assets_path }}/img/loading.png">
+          </div>
         </div>
-      </div>
+        <div class="row clearfix">
+          {{ content }}
+        </div>
+      </article>
 
-      <div class="container content">
-        {{ content }}
-      </div>
+      {% include footer.html %}
     </div>
 
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    <script src="{{ site.assets_path }}/js/jquery.min.js"></script>
+    <script src="{{ site.assets_path }}/js/bootstrap.min.js"></script>
+    <script src="{{ site.assets_path }}/js/webcore.js"></script>
+    <script src="{{ site.assets_path }}/js/jquery.qrcode.min.js"></script>
 
-    <script>
-      (function(document) {
-        var toggle = document.querySelector('.sidebar-toggle');
-        var sidebar = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
-
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          if(!checkbox.checked ||
-             sidebar.contains(target) ||
-             (target === checkbox || target === toggle)) return;
-
-          checkbox.checked = false;
-        }, false);
-      })(document);
+    <script type="text/javascript">
+      $("#code").qrcode({
+        width: 150,
+        height: 150,
+        text: "http:{{ site.url }}{{ page.url }}"
+      });
     </script>
+
+    {% include baidu-analytics.html %}
+    {% if site.comments.duoshuo.name %}
+    <!-- duoshuo Begin -->
+    <script type="text/javascript">
+      var duoshuoQuery = {short_name:"{{ site.comments.duoshuo.name }}"};
+      (function() {
+        var ds = document.createElement('script');
+        ds.type = 'text/javascript';ds.async = true;
+        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+        ds.charset = 'UTF-8';
+        (document.getElementsByTagName('head')[0] ||
+        document.getElementsByTagName('body')[0]).appendChild(ds);
+      })();
+    </script>
+    <!-- duoshuo End -->
+    {% endif %}
   </body>
 </html>
