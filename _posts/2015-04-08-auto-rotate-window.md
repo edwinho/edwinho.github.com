@@ -13,7 +13,7 @@ tags : [cocos2dx, Android, Java, game]
 
 ### 实现方法：
 
-##Android
+####Android
 
 1.首先自定义一个类继承ContentObserver。在onChange()方法里面去获取手机方向Settings的值，每次改变方向锁定的状态都会重设手机屏幕旋转方式
 
@@ -50,7 +50,7 @@ tags : [cocos2dx, Android, Java, game]
 		getContentResolver().unregisterContentObserver(mContentOb);
 	}
 
-##IOS
+####IOS
 
 在RootViewController.mm文件中写入配置屏幕旋转方式：
 
@@ -92,16 +92,3 @@ tags : [cocos2dx, Android, Java, game]
 ### 扩展
 
 - [关于Android设置屏幕旋转的官方文档](http://developer.android.com/reference/android/content/pm/ActivityInfo.html#SCREEN_ORIENTATION_SENSOR)
-
-``` python
-@requires_authorization
-def somefunc(param1='', param2=0):
-    '''A docstring'''
-    if param1 > param2: # interesting
-        print 'Greater'
-    return (param2 - param1 + 1) or None
-class SomeClass:
-    pass
->>> message = '''interpreter
-... prompt'''
-```
