@@ -6,6 +6,10 @@ tags : [cocos2dx, Android, Java, game]
 ---
 {% include JB/setup %}
 
+-------------------
+
+[TOC]
+
 ### 实现功能：
 
 * 竖屏状态不提供屏幕翻转。
