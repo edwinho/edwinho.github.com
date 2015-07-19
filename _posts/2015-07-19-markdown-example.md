@@ -1,10 +1,9 @@
 ---
 layout: post
-category : game
 title: 'markdown示例'
+category : game
 tags : [markdown]
 ---
-{% include JB/setup %}
 
 # 欢迎使用马克飞象
 
