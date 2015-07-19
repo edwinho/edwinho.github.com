@@ -6,10 +6,6 @@ tags : [cocos2dx, Android, Java, game]
 ---
 {% include JB/setup %}
 
--------------------
-
-[TOC]
-
 ### 实现功能：
 
 * 竖屏状态不提供屏幕翻转。
@@ -96,3 +92,16 @@ tags : [cocos2dx, Android, Java, game]
 ### 扩展
 
 - [关于Android设置屏幕旋转的官方文档](http://developer.android.com/reference/android/content/pm/ActivityInfo.html#SCREEN_ORIENTATION_SENSOR)
+
+``` python
+@requires_authorization
+def somefunc(param1='', param2=0):
+    '''A docstring'''
+    if param1 > param2: # interesting
+        print 'Greater'
+    return (param2 - param1 + 1) or None
+class SomeClass:
+    pass
+>>> message = '''interpreter
+... prompt'''
+```
