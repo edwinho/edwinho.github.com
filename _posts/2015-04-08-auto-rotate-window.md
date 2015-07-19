@@ -1,10 +1,9 @@
 ---
 layout: post
+title: "游戏窗口自动翻转"
 category : game
-title: '游戏窗口自动翻转'
 tags : [cocos2dx, Android, Java, game]
 ---
-{% include JB/setup %}
 
 ### 实现功能：
 
@@ -17,7 +16,7 @@ tags : [cocos2dx, Android, Java, game]
 
 1.首先自定义一个类继承ContentObserver。在onChange()方法里面去获取手机方向Settings的值，每次改变方向锁定的状态都会重设手机屏幕旋转方式
 
-<!--more-->
+
 
 	public void onChange(boolean selfChange) {
 		super.onChange(selfChange);
