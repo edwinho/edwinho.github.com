@@ -1,9 +1,10 @@
 ---
 layout: post
-title: "Markdown"
-category: demo
-tags: [test, 文章]
+category : lessons
+title: '使用jekyll上github上搭建blog'
+tags : [jekyll, git]
 ---
+{% include JB/setup %}
 
 ### 换Blog
 
