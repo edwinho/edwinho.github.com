@@ -209,12 +209,12 @@ time.small {
 blockquote {
   position: relative;
   margin: 15px 10px;
-  background-color: rgba(lighten($base03, 10%), $alpha);
+  background-color: rgba(lighten($base01, 10%), $alpha);
   border-width: 1px 1px 1px 5px;
   border-style: solid;
-  border-color: rgba($base03, $alpha * 2);
+  border-color: rgba($base01, $alpha * 2);
   border-radius: 4px;
-  box-shadow: 0 0 3px rgba($base03, $alpha);
+  box-shadow: 0 0 3px rgba($base01, $alpha);
   &:before, &:after {
     content: "\201C";
     position: absolute;
