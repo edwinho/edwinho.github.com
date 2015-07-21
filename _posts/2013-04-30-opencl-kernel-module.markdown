@@ -13,7 +13,7 @@ tags:
 
 首先介绍一下什么是[OpenCL](http://www.khronos.org/opencl/)，Open Computing Language C程序语言简称OpenCL C，是用来编写运行在OpenCL设备上的kernel程序的一门语言。OpenCL C基于ISO/IEC 9899:1999 C标准做了一定的扩展和限制。
 
-
+<!-- more -->
 
 以下面的kernel函数作为入门例子：
 

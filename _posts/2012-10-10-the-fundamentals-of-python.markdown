@@ -22,7 +22,7 @@ Here are the notes of my Python(basic) self-study.
 
 single line comments
 
-
+<!-- more -->
 
 
 \# balabala

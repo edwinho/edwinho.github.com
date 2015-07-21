@@ -18,6 +18,8 @@ tags:
 
 [分组密码](http://en.wikipedia.org/wiki/Block_cipher)的经典算法有[Rijndael](http://en.wikipedia.org/wiki/Rijndael)和[Feistel](http://en.wikipedia.org/wiki/Feistel_cipher)。
 
+<!-- more -->
+
 **Goals of Cryptography**
 
 Confidentiality(保密性)
