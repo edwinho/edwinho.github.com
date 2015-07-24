@@ -5,7 +5,7 @@ description: "业余爱好的点滴记录，同时作为配置备份的存储地
 ---
 
 
-- mail:  edwin(dot)z(dot)ho(at)gmail(dot)com
+- <i class="icon-mail"></i>mail:  edwin(dot)z(dot)ho(at)gmail(dot)com
 
 
 {% include comments.html %}

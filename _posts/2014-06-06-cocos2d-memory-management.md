@@ -30,11 +30,13 @@ tags : [cocos2dx, C++]
 
 　　C++11使用3种不同的智能指针，分别是unique\_ptr、shared\_ptr和weak\_ptr，都属于模板类型，可以通过如下的方式使用它们。
 
-	int main() {
-		unique_ptr<int> p1 (new int(11));
-		shared_ptr<int> p2 (new int(22));
-		weak_ptr<int> p3 = p2;
-	}
+```C++
+int main() {
+	unique_ptr<int> p1 (new int(11));
+	shared_ptr<int> p2 (new int(22));
+	weak_ptr<int> p3 = p2;
+}
+```
 
 　　每个智能指针都重载了“\*”运算符，我们可以使用“\*p1”访问所分配的堆内存。智能指针在析构或者调用reset成员的时候，都可能释放其所拥有的堆内存。三者之间的区别如下。
 
