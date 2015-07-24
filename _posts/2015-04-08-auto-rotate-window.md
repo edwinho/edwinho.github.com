@@ -18,76 +18,82 @@ tags : [cocos2dx, Android, Java, game]
 
 1.首先自定义一个类继承ContentObserver。在onChange()方法里面去获取手机方向Settings的值，每次改变方向锁定的状态都会重设手机屏幕旋转方式
 
-
-
-	public void onChange(boolean selfChange) {
-		super.onChange(selfChange);
-		int flag = Settings.System.getInt(getContentResolver(),Settings.System.ACCELEROMETER_ROTATION, 0);
-		if (flag == 1)
-		{
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
-		}
-		else if (flag == 0)
-		{
-			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
-		}
+```Java
+public void onChange(boolean selfChange) {
+	super.onChange(selfChange);
+	int flag = Settings.System.getInt(getContentResolver(),Settings.System.ACCELEROMETER_ROTATION, 0);
+	if (flag == 1)
+	{
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_LANDSCAPE);
 	}
+	else if (flag == 0)
+	{
+		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
+	}
+}
+```
 
 	
 2.注册监听事件
 
-	private SettingsValueChangeContentObserver mContentOb;
-	protected void onStart() {
-		super.onStart();
-		mContentOb=new SettingsValueChangeContentObserver();
-		getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true, mContentOb);
-	}
+```Java
+private SettingsValueChangeContentObserver mContentOb;
+protected void onStart() {
+	super.onStart();
+	mContentOb=new SettingsValueChangeContentObserver();
+	getContentResolver().registerContentObserver(Settings.System.getUriFor(Settings.System.ACCELEROMETER_ROTATION), true, mContentOb);
+}
+```
 
 
 3.当应用退出的时候取消监听
 
-	protected void onStop() {
-		super.onStop();
-		getContentResolver().unregisterContentObserver(mContentOb);
-	}
+```Java
+protected void onStop() {
+	super.onStop();
+	getContentResolver().unregisterContentObserver(mContentOb);
+}
+```
 
 ####IOS
 
 在RootViewController.mm文件中写入配置屏幕旋转方式：
 
-	// Override to allow orientations other than the default portrait orientation.
-	// This method is deprecated on ios6
-	- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-	    return UIInterfaceOrientationIsLandscape( interfaceOrientation );
-	}
+```Objective-C
+// Override to allow orientations other than the default portrait orientation.
+// This method is deprecated on ios6
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    return UIInterfaceOrientationIsLandscape( interfaceOrientation );
+}
 
-	// For ios6, use supportedInterfaceOrientations & shouldAutorotate instead
-	- (NSUInteger) supportedInterfaceOrientations{
-	#ifdef __IPHONE_6_0
-	    //return UIInterfaceOrientationMaskAllButUpsideDown;
-	    return UIInterfaceOrientationMaskLandscape;
-	#endif
-	}
+// For ios6, use supportedInterfaceOrientations & shouldAutorotate instead
+- (NSUInteger) supportedInterfaceOrientations{
+#ifdef __IPHONE_6_0
+    //return UIInterfaceOrientationMaskAllButUpsideDown;
+    return UIInterfaceOrientationMaskLandscape;
+#endif
+}
 
-	- (BOOL) shouldAutorotate {
-	    return YES;
-	}
+- (BOOL) shouldAutorotate {
+    return YES;
+}
 
-	- (void)didReceiveMemoryWarning {
-	    // Releases the view if it doesn't have a superview.
-	    [super didReceiveMemoryWarning];
-	    // Release any cached data, images, etc that aren't in use.
-	}
+- (void)didReceiveMemoryWarning {
+    // Releases the view if it doesn't have a superview.
+    [super didReceiveMemoryWarning];
+    // Release any cached data, images, etc that aren't in use.
+}
 
-	- (void)viewDidUnload {
-	    [super viewDidUnload];
-	    // Release any retained subviews of the main view.
-	    // e.g. self.myOutlet = nil;
-	}
+- (void)viewDidUnload {
+    [super viewDidUnload];
+    // Release any retained subviews of the main view.
+    // e.g. self.myOutlet = nil;
+}
 
-	- (void)dealloc {
-	    [super dealloc];
-	}
+- (void)dealloc {
+    [super dealloc];
+}
+```
 
 
 ### 扩展
