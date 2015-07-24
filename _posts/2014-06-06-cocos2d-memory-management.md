@@ -29,13 +29,13 @@ tags : [cocos2dx, C++]
 　　由于自动变量通常不会导致内存问题，所以智能指针试图通过将一个动态分配的内存单元与一个自动变量关联，让这个自动变量在离开代码块并被自动释放的时候释放其管理指针的内存单元，这使程序员不再不需要显式地调用delete运算符就可以很好地管理动态分配的内存。
 
 　　C++11使用3种不同的智能指针，分别是unique\_ptr、shared\_ptr和weak\_ptr，都属于模板类型，可以通过如下的方式使用它们。
-```
- int main() {
-      unique_ptr<int> p1 (new int(11));
-      shared_ptr<int> p2 (new int(22));
-      weak_ptr<int> p3 = p2;
- }
-```
+	```
+	 int main() {
+	      unique_ptr<int> p1 (new int(11));
+	      shared_ptr<int> p2 (new int(22));
+	      weak_ptr<int> p3 = p2;
+	 }
+	```
 
 　　每个智能指针都重载了“\*”运算符，我们可以使用“\*p1”访问所分配的堆内存。智能指针在析构或者调用reset成员的时候，都可能释放其所拥有的堆内存。三者之间的区别如下。
 
