@@ -52,7 +52,7 @@ int main() {
 　　第二，虽然智能指针能帮助程序员进行有效的堆内存管理，但它仍然需要程序员显式地声明智能指针。例如，创建一个Node的代码需要这样写。
 
 ```C++
-shared_ptr<Node*> node(new Node());
+	shared_ptr<Node*> node(new Node());
 ```
 
 　　另外，在需要引用的地方，一般应该使用weak\_ptr指针，否则在Node被移除的时候还要手动减持shared\_ptr指针的引用计数，示例如下。
