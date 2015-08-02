@@ -193,7 +193,7 @@ Node * Node::create(void)
 ```
 
 　　**3.AutoreleasePool队列**
-　　
+
 　　对于一个游戏对象而言，一帧的生命周期显然有些长。假设一帧中会调用100个方法，每个方法创建10个autorelease对象，并且这些对象只在每个方法的作用域内被使用，则在该帧即将结束的时候，内存中的峰值为1000个游戏对象所占用的内存。这样，游戏的平均内存占用会大大增加，而实际上，每帆平均只需要占用10个对象的内存（假设这些方法是顺序执行的）。
 　　
 　　默认AutoreleasePool一帧被清理一次，主要是用来清理UI元素的。因为UI元素大部分都是添加到UI树中的，会一直占用内存，所以，这种情况下每帧清理并不会对内存占用有太大的影响。
@@ -269,7 +269,7 @@ void customAutoreleasePool()
 }
 ```
 
-　　在该方法开始执行时，声明一个AutoreleasePool类型的自动变量Pool，其构造函数会将自身加入PoolManager的AutoreleasePool队列的尾端。接下来，ref1的ref2都会被添加到pool池中。当该方法结束时，自动变量pool的生命周期结束，其析构函数将释放对象，将从队列中移除自己。
+　　在该方法开始执行时，声明一个AutoreleasePool类型的自动变量Pool，其构造函数会将自身加入PoolManager的AutoreleasePool队列的尾端。接下来，ref1和ref2都会被添加到pool池中。当该方法结束时，自动变量pool的生命周期结束，其析构函数将释放对象，将从队列中移除自己。
      
 　　这样，我们就能够通过自定义AutoreleasePool的生命周期来控制Cocos2d-x中autorelease对象的生命周期了。
 
