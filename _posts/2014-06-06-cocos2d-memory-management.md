@@ -82,22 +82,22 @@ int main() {
 　　Cocos2d-x中的所有对象几乎都继承自Ref基类。Ref基类主要的职责就是对对象进行引用计数管理，示例如下。
 
 ```C++
-	class CC_DLL Ref
-	{
-	public:
-		void retain();
-		void release();
-		Ref* autorelease();
-		unsigned int getReferenceCount() const;
+class CC_DLL Ref
+{
+public:
+	void retain();
+	void release();
+	Ref* autorelease();
+	unsigned int getReferenceCount() const;
 
-	protected:
-		Ref();
+protected:
+	Ref();
 
-	protected:
-		// count of references
-		unsigned int  _referenceCount;
-		friend class AutoreleasePool;
-	};
+protected:
+	// count of references
+	unsigned int  _referenceCount;
+	friend class AutoreleasePool;
+};
 ```
 
 　　当一个对象使用由new运算符分配的内存时，其引用计数为1，调用retain()方法会增加其引用计数，调用release()方法则会减少其引用计数，release()方法会在其引用计数为零时自动调用delete运算符删除对象并释放内存。
@@ -107,10 +107,10 @@ int main() {
 　　来看一下在仅有引用计数的情况下应该怎样管理UI元素，示例如下。
 
 ```c++
-	auto node = new Node();          // 引用计数为1
-	addChild(node);                  // 引用计数为2
-	node->removeFromParent();        // 引用计数为1
-	node->release();                 // 引用计数为0
+auto node = new Node();          // 引用计数为1
+addChild(node);                  // 引用计数为2
+node->removeFromParent();        // 引用计数为1
+node->release();                 // 引用计数为0
 ```
 
 　　显然，这不是我们想要的结果。如果忘记调用release()方法就会导致内存泄漏。
@@ -122,11 +122,11 @@ int main() {
 　　Cocos2d-x使用autorelease()方法来声明一个对象指针为智能指针，但是这些智能指针并不单关联某个自动变量，而是全部被加入一个AutoreleasePool中，在每一帧结束的时候对加入AutoreleasePool中的对象进行清理，也就是说，在Cocos2d-x中，一个智能指针的生命同期从被创建时开始，到当前帧结束时结束，示例如下。
 
 ```c++
-	Ref* Ref:autorelease()
-	{
-		PoolManager::getInstance()->getCurrentPool()->addObject(this);
-		return this;
-	}
+Ref* Ref:autorelease()
+{
+	PoolManager::getInstance()->getCurrentPool()->addObject(this);
+	return this;
+}
 ```
 
 　　在以上方法中，Cocos2d-x通过autorelease()方法将一个对象添加到一个AutoreleasePool中。
@@ -134,37 +134,37 @@ int main() {
 　　Cocos2d-x在每一帧线束的时候清理当前AutoreleasePool中的对象，示例如下。
 
 ```c++
-	void DisplayLinkDirector::mainLoop()
-	{
-		if(!_invalid){
-		    drawScene();
-		    // release the object
-		    PoolManager::getInstance()->getCurrentPool()->clear();
-		}
+void DisplayLinkDirector::mainLoop()
+{
+	if(!_invalid){
+	    drawScene();
+	    // release the object
+	    PoolManager::getInstance()->getCurrentPool()->clear();
 	}
+}
 
-	void AutoreleasePool::clear()
-	{
-		for( const auto &obj:_managedObjectArray) {
-		    obj->release();
-		}
-		_managedObjectArray.clear();
+void AutoreleasePool::clear()
+{
+	for( const auto &obj:_managedObjectArray) {
+	    obj->release();
 	}
+	_managedObjectArray.clear();
+}
 ```
 
 　　实际的实现机制是：AutoreleasePool对池中的每个对象执行一次relase操作，假该对象的引用计数为1，表示其从未被使用，则执行release操作之后引用计数为零，对象将被释放。创建一个不被使用的Node，示例如下。
 
 ```c++
-	auto node = new Node();          //引用计数1
-	node->autorelease();          //加入智能指针池
+auto node = new Node();          //引用计数1
+node->autorelease();          //加入智能指针池
 ```
 
 　　可以预计，在该帧结束的时候Node对象将被自动释放。如果该对象在该帧结束之前被使用，示例如下。
 
 ```c++
-	auto node = new Node();          //引用计数为1
-	node->autorelease();          //加入智能指针池
-	addChild(node);          //引用计数为2
+auto node = new Node();          //引用计数为1
+node->autorelease();          //加入智能指针池
+addChild(node);          //引用计数为2
 ```
 
 　　在该帧结束的时候，AutoreleasePool对其执行1次release操作之后，引用计数为1，该对象继续存在。当下次该Node被移除的时候，引用计数为零，引用计数为零，对象就会被自动释放。这样就实现了Ref对象的自动内存管理。
@@ -172,24 +172,24 @@ int main() {
 　　然而，这需要程序员手动声明其是“智能”的，示例如下。
 
 ```c++
-    auto node = new Node();
-    node->autorelease();          //在Cocos2d-x中声明智能指针
+auto node = new Node();
+node->autorelease();          //在Cocos2d-x中声明智能指针
 ```
 
 　　为了简化这种声明，Cocos2d-x使用静态的create()方法来返回一个智能指针对象。Cocos2d-x中大部分的类都可以通过create()方法返回一个智能指针对象，如Node、Action等。同时，自定义的UI元素也应该遵循这样的风格，以简化其声明，示例如下。
 
 ```c++
-	Node * Node::create(void)
-	{
-		Node * ret = new Node();
-		if (ret && ret->init() ){
-		    ret->autorelease();
-		}
-		else {
-		    CC_SAFE_DELETE(ret);
-		}
-		return ret;
+Node * Node::create(void)
+{
+	Node * ret = new Node();
+	if (ret && ret->init() ){
+	    ret->autorelease();
 	}
+	else {
+	    CC_SAFE_DELETE(ret);
+	}
+	return ret;
+}
 ```
 
 　　**3.AutoreleasePool队列**
@@ -201,53 +201,53 @@ int main() {
 　　显然，对于自定义的数据对象，我们需要能够自定义AutoreleasePool的生命周期。Cocos2d-x通过实现一个AutoreleasePool队列来实现智能指针生命周期的自定义，并由PoolManager来管理这个AutoreleasePool队列，示例如下。
 
 ```c++
-     class CC_DLL PoolManager
-     {
-     public:
-		static PoolManager* getInstance();
-		static void destroyInstance();
+ class CC_DLL PoolManager
+ {
+ public:
+	static PoolManager* getInstance();
+	static void destroyInstance();
 
-		AutoreleasePool  *getCurrentPool() const;
-		bool isObjectInPools(Ref* obj) const;
+	AutoreleasePool  *getCurrentPool() const;
+	bool isObjectInPools(Ref* obj) const;
 
-		friend class AutoreleasePool;
+	friend class AutoreleasePool;
 
-     private:
-		PoolManager();
-		~PoolManager();
+ private:
+	PoolManager();
+	~PoolManager();
 
-		void push(AutoreleasePool *pool);
-		void pop();
+	void push(AutoreleasePool *pool);
+	void pop();
 
-		static PoolManager* s_singleInstace;
+	static PoolManager* s_singleInstace;
 
-		std::deque<AutoreleasePool *> _releasePoolStack;
-		AutoreleasePool *_curReleasePool;
-     }
+	std::deque<AutoreleasePool *> _releasePoolStack;
+	AutoreleasePool *_curReleasePool;
+ }
 ```
 
 　　PoolManager的初始状态默认至少有一个AutoreleasePool，它主要用来存储前面讲述的Cocos2d-x中的UI元素对象。我们可以创建自己的AutoreleasePool对象，将其加入队列尾端。但是，如果我们使用new运算符来创建AutoreleasePool对象，则需要手动释放。为了达到和智能指针使用自动变量来管理内存相同的效果，Cocos2d-x对AutorelesePool的构造和析构函数进行了特殊处理，使我们可以通过自动变量来管理内存的释放。示例如下。
 
 ```c++
-	AutoreleasePool::AutoreleasePool()
-	: _name("")
-	{
-		_managedObjectArray.reserve(150);
-		PoolManager::getInstance()->push(this);
-	}
+AutoreleasePool::AutoreleasePool()
+: _name("")
+{
+	_managedObjectArray.reserve(150);
+	PoolManager::getInstance()->push(this);
+}
 
-	AutureleasePool::AutoreleasePool(const std::string &name)
-	: _name(name)
-	{
-		_managedObjectArray.reserve(150);
-		PoolManager::getInstance()->push(this);
-	}
+AutureleasePool::AutoreleasePool(const std::string &name)
+: _name(name)
+{
+	_managedObjectArray.reserve(150);
+	PoolManager::getInstance()->push(this);
+}
 
-	AutoreleasePool::~AutoreleasePool()
-	{
-		clear();
-		PoolManager::getInstance()->pop();
-	}
+AutoreleasePool::~AutoreleasePool()
+{
+	clear();
+	PoolManager::getInstance()->pop();
+}
 ```
 
 　　AutoreleasePool在构造函数中将自身指针添加到PoolManager的AutoreleasePool队列中，并在析构函数中从队列中移除自己。Ref::autorelease()方法始终将自己添加到当前AutoreleasePool中，只要当前AutoreleasePool始终为队列尾端的元素，声明一个AutoreleasePool对象就可以影响之后的对象，直到该AutoreleasePool对象被移出队列为止，示例如下。
@@ -283,4 +283,4 @@ void customAutoreleasePool()
 * 不要动态分配AutoreleasePool，要始终使用自动变量。
 * 不要显式调用RefPtr的构造函数，始终使用隐式方式调用构造函数，因为显式的构造函数会导致同时执行构造函数和赋值操作符，这会造成一次必要的临时智能指针变量的产生。
 
-————文章摘自《我所理解的COCOS2D-X》
+　　————文章摘自《我所理解的COCOS2D-X》
