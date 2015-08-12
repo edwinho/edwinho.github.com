@@ -62,4 +62,3 @@ Counter Mode:流密码常用的模式
 
 《[The Block Cipher Companion](http://www.amazon.cn/s/ref=nb_sb_noss?__mk_zh_CN=%E4%BA%9A%E9%A9%AC%E9%80%8A%E7%BD%91%E7%AB%99&url=search-alias%3Daps&field-keywords=block+cipher+companion)》
 
-[singlepic id=4 w=332 h=500 float=]
