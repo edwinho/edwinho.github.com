@@ -21,4 +21,4 @@ tags : [cocos2dx, Android, iOS, game]
 
 #### 过程:
 
-　　从[luajit.org](http://luajit.org/)官网上下载2.1版本的luajit，在发布机上安装64位的luajit环境。但是发布机是同时处理iOS和Android的，所以升级后，导致Android版本的不能读取差异包（cannot load incompatible bytecode），所以后来修改处理方案：加上升级Android版本的luajit。不过Android的有点麻烦，执行build_android.sh生成新的libluajit.a要有gcc、ndk、GUN什么鬼环境，最后生成好，重新编译Cocos2d-x，再生成新的APK包。
+　　从[luajit](http://luajit.org/)官网上下载2.1版本的luajit，在发布机上安装64位的luajit环境。但是发布机是同时处理iOS和Android的，所以升级后，导致Android版本的不能读取差异包（cannot load incompatible bytecode），所以后来修改处理方案：加上升级Android版本的luajit。不过Android的有点麻烦，执行build_android.sh生成新的libluajit.a要有gcc、ndk、GUN什么鬼环境，最后生成好，重新编译Cocos2d-x，再生成新的APK包。
