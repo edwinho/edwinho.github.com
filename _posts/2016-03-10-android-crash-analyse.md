@@ -51,7 +51,9 @@ tags : [cocos2dx, Android, game]
 * 发生原因
   * java层代码异常且未捕获
 * 定位原因
-  * 在线日志 DDMS/adb logcat – 离线日志 bugreport > /sdcard/bugreport.txt – 网络日志 第三方bug收集sdk
+  * 在线日志 DDMS/adb logcat 
+  – 离线日志 bugreport > /sdcard/bugreport.txt 
+  – 网络日志 第三方bug收集sdk
      - 腾讯bugly，Testin云测试
      - 自己写代码收集或开源项目
 * 解决建议
