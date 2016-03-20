@@ -25,8 +25,8 @@ tags : [cocos2dx, Android, game]
   * 应用长时间无响应
 * 崩溃症状
   * 系统弹出窗口询问用户选择"Force Close"或者"Wait"
-    "orce Close"将杀掉发生ANR的应用进程
-    "Wait"将会等待系统择机恢复此应用进程
+     - "orce Close"将杀掉发生ANR的应用进程
+     - "Wait"将会等待系统择机恢复此应用进程
 * 发生原因
   * 应用主线程卡住，对其他请求响应超时
   * 死锁
@@ -36,7 +36,7 @@ tags : [cocos2dx, Android, game]
   * 在线日志 DDMS/adb logcat 
   * 离线日志 data/anr/traces.txt 
   * 网络日志 第三方bug收集sdk
-    腾讯bugly，Testin云测试
+     - 腾讯bugly，Testin云测试
 * 解决建议
   * 不要在主线程中进行耗时的操作，特别是IO相关如网络操作，读写DB等操作
   * 在内存和CPU方面遇到瓶颈的话，可以使用android提供的内存和CPU的调优工具进行定位相关代码和业务模块进行定优化 (traceview，systrace，Oprofile等)
@@ -52,8 +52,8 @@ tags : [cocos2dx, Android, game]
   * java层代码异常且未捕获
 * 定位原因
   * 在线日志 DDMS/adb logcat – 离线日志 bugreport > /sdcard/bugreport.txt – 网络日志 第三方bug收集sdk
-    腾讯bugly，Testin云测试
-    自己写代码收集或开源项目
+     - 腾讯bugly，Testin云测试
+     - 自己写代码收集或开源项目
 * 解决建议
   * 异常处理try catch
   * 非关键流程进行异常处理，出bug也不卡流程
@@ -89,12 +89,12 @@ tags : [cocos2dx, Android, game]
 
 * 编译（例子），编译luajit 
   * 先用make+makefile编译出libulua.a
-    交叉编译，指定ABI（指令体系架构），以便生成对应的机器指令
-    采用库本身的makefile，因为编译有顺序，如果直接用ndk-build编译，要指定文件编译顺序
+     - 交叉编译，指定ABI（指令体系架构），以便生成对应的机器指令
+     - 采用库本身的makefile，因为编译有顺序，如果直接用ndk-build编译，要指定文件编译顺序
   * 用Android.mk+ndk-build编译出libulua.so
-    会导出不带符号和带符号的so
-    ~ libs/armeabi-v7a/libulua.so
-    ~ obj/local/armeabi-v7a/libulua.so
+     - 会导出不带符号和带符号的so
+       - libs/armeabi-v7a/libulua.so
+       - obj/local/armeabi-v7a/libulua.so
 
 ### 符号还原
 
@@ -108,18 +108,18 @@ tags : [cocos2dx, Android, game]
 
 * 常见错误信号
   * SIGILL
-    信号量 4，机器指令错误，例如给函数指针赋了个非方法来执行（指针跑飞）
+     - 信号量 4，机器指令错误，例如给函数指针赋了个非方法来执行（指针跑飞）
   * SIGSEGV
-    信号量 11，段错误，非法方式访问了可访问的内存区域SIGBUS
-    SEGV_ACCERR，对映射的对象没有权限
-    SEGV_MAPERR，地址没有映射到对象
+     - 信号量 11，段错误，非法方式访问了可访问的内存区域SIGBUS
+     - SEGV_ACCERR，对映射的对象没有权限
+     - SEGV_MAPERR，地址没有映射到对象
   * SIGBUS
-    信号量 7，内存错误，非法方式访问了不可访问的内存区域
+     - 信号量 7，内存错误，非法方式访问了不可访问的内存区域
   * SIGFPE
-    信号量 8，算数错误（除0）
+     - 信号量 8，算数错误（除0）
   * SIGABRT
-    信号量 6
-    主动中止运行
+     - 信号量 6
+     - 主动中止运行
 
 ### native常见错误
 
