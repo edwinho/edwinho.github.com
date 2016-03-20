@@ -168,4 +168,5 @@ tags : [cocos2dx, Android, game]
 命令及参数：adb logcat|ndk-stack -sym 目录
 
 ![ndk-debug](http://edwinho.github.io/images/android/ndk-debug.png)
+
 可以看到哪个文件哪一行发生了错误。
