@@ -25,7 +25,7 @@ tags : [cocos2dx, Android, game]
   * 应用长时间无响应
 * 崩溃症状
   * 系统弹出窗口询问用户选择"Force Close"或者"Wait"
-     - "orce Close"将杀掉发生ANR的应用进程
+     - "Force Close"将杀掉发生ANR的应用进程
      - "Wait"将会等待系统择机恢复此应用进程
 * 发生原因
   * 应用主线程卡住，对其他请求响应超时

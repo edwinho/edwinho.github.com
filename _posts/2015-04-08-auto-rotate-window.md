@@ -2,7 +2,7 @@
 layout: post
 title: "游戏窗口自动翻转"
 category : game
-tags : [cocos2dx, Android, Java, game]
+tags : [cocos2dx, Android, iOS, Java, game]
 ---
 
 ### 实现功能：
