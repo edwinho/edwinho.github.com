@@ -52,8 +52,8 @@ tags : [cocos2dx, Android, game]
   * java层代码异常且未捕获
 * 定位原因
   * 在线日志 DDMS/adb logcat 
-  – 离线日志 bugreport > /sdcard/bugreport.txt 
-  – 网络日志 第三方bug收集sdk
+  * 离线日志 bugreport > /sdcard/bugreport.txt 
+  * 网络日志 第三方bug收集sdk
      - 腾讯bugly，Testin云测试
      - 自己写代码收集或开源项目
 * 解决建议
@@ -70,7 +70,8 @@ tags : [cocos2dx, Android, game]
 * 发生原因
   * 由c++/c代码引起（NDK）
 * 定位原因
-  * 在线日志 DDMS/adb logcat – 离线日志 /data/tombstones/tombstone_nn
+  * 在线日志 DDMS/adb logcat 
+  * 离线日志 /data/tombstones/tombstone_nn
   * 网络日志 第三方bug收集sdk
 * 腾讯bugly，Testin云测试
 * 日志还原
@@ -95,8 +96,8 @@ tags : [cocos2dx, Android, game]
      - 采用库本身的makefile，因为编译有顺序，如果直接用ndk-build编译，要指定文件编译顺序
   * 用Android.mk+ndk-build编译出libulua.so
      - 会导出不带符号和带符号的so
-       - libs/armeabi-v7a/libulua.so
-       - obj/local/armeabi-v7a/libulua.so
+       * libs/armeabi-v7a/libulua.so
+       * obj/local/armeabi-v7a/libulua.so
 
 ### 符号还原
 
