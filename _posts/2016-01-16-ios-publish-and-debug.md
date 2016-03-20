@@ -12,6 +12,8 @@ tags : [iOS, game]
 
 ![publish01](http://edwinho.github.io/images/ios/publish01.png)
 
+<!-- more -->
+
 　　iOS 开发者计划主要为iOS设备进行App开发，比如iPhone和iPad等，iOS计划也是目前苹果整个开发者计划类型中人数最多的。账号类型分为个人（Individual）、公司（Company）、企业（Enterprise）、高校（University）四种类型，每年资费分别为$99、$99、$299、免费。根据账号类型的不同，申请的条件和所具有的权限也不同。  
 
 　　个人计划只需要填写个人信息并通过苹果审核即可，公司计划需要出示相应的公司信息、营业执照等，企业账号需要出示的信息和公司账号类似，高校计划需要提供高校基本信息，在注册方式上苹果开发者官网有详细的流程。  
