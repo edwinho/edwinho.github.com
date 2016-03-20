@@ -131,7 +131,7 @@ tags : [iOS, game]
 
 ![publish13](http://edwinho.github.io/images/ios/publish13.png)
 
-　　App Store：是用来提交到App Store 上的，发布状态的Provisioning Profile 已经以签名的方式和 App 进行了绑定，有一点不同的是，发布状态的Provisioning Profile 不需要指定Device，因为它不知道将被哪些设备使用。  
+* App Store：是用来提交到App Store 上的，发布状态的Provisioning Profile 已经以签名的方式和 App 进行了绑定，有一点不同的是，发布状态的Provisioning Profile 不需要指定Device，因为它不知道将被哪些设备使用。  
 
 ![publish14](http://edwinho.github.io/images/ios/publish14.png)
 
@@ -155,7 +155,7 @@ tags : [iOS, game]
 
 ![publish16](http://edwinho.github.io/images/ios/publish16.png)
 
-进入以下界面  
+　　进入以下界面  
 
 ![publish17](http://edwinho.github.io/images/ios/publish17.png)
 
@@ -267,10 +267,10 @@ tags : [iOS, game]
 
 Distribution 主要有以下几个步骤：   
 
-*申请发布证书   
-*生成发布Provisioning Profile  
-*设置Xcode Code Sign Identifer，设置release 选项为发布证书  
-*导出ipa  
+* 申请发布证书   
+* 生成发布Provisioning Profile  
+* 设置Xcode Code Sign Identifer，设置release 选项为发布证书  
+* 导出ipa  
 
 　　前面1~4 步骤基本和调试过程一样，所以就不做太多描述，按着上面做就行，现在主要讲下导出ipa 的步骤：  
 
