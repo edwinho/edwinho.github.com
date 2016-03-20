@@ -10,10 +10,10 @@ tags : [cocos2dx, Android, game]
 * Crash是指App非正常退出现象
 * 分类：
   * Java层Crash
-    * ANR(Application Not Responding) 应用无响应
-    * Force Close 强制结束
+     - ANR(Application Not Responding) 应用无响应
+     - Force Close 强制结束
   * Native层Crash
-    * Tombstones
+     - Tombstones
   * 系统服务崩溃（System Server Crash）
   * kernel Panics
 
